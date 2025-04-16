@@ -1,5 +1,6 @@
+
 import { useEffect } from "react";
-import { useLocation, useRouter } from "wouter";
+import { useLocation } from "wouter";
 import { useAuth } from "@/contexts/auth-context";
 import { Spinner } from "@/components/ui/spinner";
 
@@ -9,8 +10,7 @@ interface ProtectedRouteProps {
 
 export function ProtectedRoute({ children }: ProtectedRouteProps) {
   const { currentUser, isLoading } = useAuth();
-  const [, navigate] = useRouter();
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
 
   useEffect(() => {
     if (!isLoading && !currentUser) {

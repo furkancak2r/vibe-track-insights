@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaPlus } from "react-icons/fa";
 import { MoodCalendar } from "@/components/mood/mood-calendar";
@@ -41,6 +42,16 @@ export default function CalendarView() {
                entryDate.getMonth() === selectedDate.getMonth() &&
                entryDate.getFullYear() === selectedDate.getFullYear();
       })
+    : undefined;
+  
+  // Convert null values to undefined to match the expected types
+  const formattedExistingEntry = existingEntry 
+    ? {
+        id: existingEntry.id,
+        mood: existingEntry.mood,
+        notes: existingEntry.notes === null ? undefined : existingEntry.notes,
+        factors: existingEntry.factors === null ? undefined : existingEntry.factors
+      }
     : undefined;
   
   const handleAddMood = () => {
@@ -113,7 +124,7 @@ export default function CalendarView() {
           isOpen={dialogOpen}
           onClose={() => setDialogOpen(false)}
           selectedDate={selectedDate}
-          existingEntry={existingEntry}
+          existingEntry={formattedExistingEntry}
         />
       )}
     </>

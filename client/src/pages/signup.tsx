@@ -1,5 +1,6 @@
+
 import { useState } from "react";
-import { useRouter } from "wouter";
+import { useLocation } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -21,7 +22,7 @@ const signupSchema = z.object({
 type SignupFormValues = z.infer<typeof signupSchema>;
 
 export default function SignupPage() {
-  const [, navigate] = useRouter();
+  const [location, navigate] = useLocation();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
 
