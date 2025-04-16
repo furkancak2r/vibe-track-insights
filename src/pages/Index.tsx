@@ -1,11 +1,20 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import MoodCalendar from "@/components/MoodCalendar";
+import MoodAnalytics from "@/components/MoodAnalytics";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-background p-6">
+      <div className="max-w-6xl mx-auto space-y-8">
+        <header className="text-center">
+          <h1 className="text-4xl font-bold text-[#6E59A5] mb-2">Mood Tracker</h1>
+          <p className="text-muted-foreground">Track and visualize your daily emotional journey</p>
+        </header>
+        
+        <main className="space-y-8">
+          <MoodCalendar />
+          <MoodAnalytics />
+        </main>
       </div>
     </div>
   );
