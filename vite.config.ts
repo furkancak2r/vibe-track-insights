@@ -9,6 +9,11 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
+  root: 'client',
+  build: {
+    outDir: '../dist/public',
+    emptyOutDir: true,
+  },
   server: {
     host: "::",
     port: 8080
